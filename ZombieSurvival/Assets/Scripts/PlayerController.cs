@@ -6,6 +6,9 @@ public class PlayerController : MonoBehaviour {
 
 	public float moveSpeed;
 
+	public Transform gun;
+	public GameObject bullet;
+
 	private Animator anim;
 
 	// Use this for initialization
@@ -22,6 +25,9 @@ public class PlayerController : MonoBehaviour {
 		}
 		if(Input.GetKey(KeyCode.D)){
 			GetComponent<Rigidbody2D> ().velocity = new Vector2 (moveSpeed, GetComponent<Rigidbody2D> ().velocity.y);
+		}
+		if (Input.GetKeyDown (KeyCode.Space)) {
+			Instantiate (bullet, gun.position, gun.rotation);
 		}
 
 		//Animations & player flipping
